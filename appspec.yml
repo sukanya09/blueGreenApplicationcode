@@ -1,0 +1,9 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition:"arn:aws:ecs:us-west-2:810119154557:task-definition/first-run-task-definition:1"
+        LoadBalancerInfo:
+          ContainerName: "ECSbg"
+          ContainerPort: 80

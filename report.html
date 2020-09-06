@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<!--
+	Retrospect by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+<head>
+	<!-- <title>Generic - Retrospect by TEMPLATED</title> -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+
+	<title>Basic Embed</title>
+        <script src="https://unpkg.com/amazon-quicksight-embedding-sdk@1.0.9/dist/quicksight-embedding-js-sdk.min.js"></script> 
+        <script type="text/javascript">
+            var dashboard
+            function onDashboardLoad(payload) {
+                console.log("Do something when the dashboard is fully loaded.");
+            }
+ 
+            function onError(payload) {
+                console.log("Do something when the dashboard fails loading");
+            }
+ 
+            function embedDashboard() {
+                var containerDiv = document.getElementById("embeddingContainer");
+                var options = {
+                    url: "https://us-east-1.quicksight.aws.amazon.com/embed/583b4de8bfff43ed8f7877918e69c428/dashboards/e23f5b33-5849-4ca9-817d-f42a4be27721?isauthcode=true&identityprovider=quicksight&code=AYABeCGJUb7l2YYS-IDvubM2kagAAAABAAdhd3Mta21zAEthcm46YXdzOmttczp1cy1lYXN0LTE6MjU5NDgwNDYyMTMyOmtleS81NGYwMjdiYy03MDJhLTQxY2YtYmViNS0xNDViOTExNzFkYzMAuAECAQB4P-lAb3AsrVHPwO-wVCEmuFDTp0yz4wFfkrwutzPupewBOUO4Xhwu59YYmZEGOUXttwAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP3W0v_kmAIKdM9P_wIBEIA7IWZlZ3KAV2hmhrVC3UOAlAnq4TXtvxg0PRWQbac0eNPhLrfB6KsC1FT5BibVbHLic6s6HWf2kfVDdHECAAAAAAwAABAAAAAAAAAAAAAAAAAAPZo8HUDVa6xh7pEi0fHN7P____8AAAABAAAAAAAAAAAAAAABAAAAm9E6736EF6H2tluPYIqACaT3bqRJAacRbJAZpJlkteNDzMpD8uSJxLN-itvCGKnLE9BsrJQKt2CvXaXPyZ9I3dcmnZXBHnkrjtkdircdmtR_T9K4bPnWFcTbAMsIHde90FoP4W8B8r5WGEibYVDzU0F517O6_JU3pTXNBlHpkJfc-jQWksExXza5zbs81-b77BIQS7r-TjJftCXEs-Aer5MqTI6SWWtaE6xb0g%3D%3D",
+                    container: containerDiv,
+                    parameters: {
+                        country: "United States"
+                    },
+                    scrolling: "no",
+                    height: "700px",
+                    width: "1000px",
+                    locale: "en-US",
+                    footerPaddingEnabled: true
+                };
+                dashboard = QuickSightEmbedding.embedDashboard(options);
+                dashboard.on("error", onError);
+                dashboard.on("load", onDashboardLoad);
+            }
+ 
+            function onCountryChange(obj) {
+                dashboard.setParameters({country: obj.value});
+            }
+        </script>
+</head>
+
+<body onload="embedDashboard()">
+
+	<!-- Header -->
+	<header id="header">
+		<h1><a href="index.html">Home</a></h1>
+		<a href="#nav">Menu</a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="nav">
+		<ul class="links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="report.html">Report</a></li>
+			<li><a href="project.html">Project</a></li>
+			<li><a href="team.html">Team</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main -->
+	<section id="main" class="wrapper">
+		<h2>QuickSight dashboard</h2>
+		<div id="embeddingContainer"></div>
+
+		<div class="container">
+
+			<header class="major special">
+				<h2>Covid Live Report</h2>
+				<p>Report by Amazon QuickSight</p>
+			</header>
+
+			<a href="#" class="image fit"><img src="images/report.png" alt="" /></a>
+			<h3>Introduction</h3>
+			<p>We have used following AWS Services to create this dashboard.</p>
+
+			<h3>AWS Data Exchange</h3>
+			<p>We have used above Data provider and exported their data in S3 for further Analysis.</p>
+			<a href="#" class="image fit"><img src="images/enigma.png" alt="" /></a>
+
+			<h3>Amazon S3</h3>
+			<p>We have used Amazon S3 to store data for Analysis</p>
+			<a href="#" class="image fit"><img src="images/s3.png" alt="" /></a>
+
+			<h3>AWS Glue Crawlers</h3>
+			<p>Crawlers has been created to create a schema for Analysis</p>
+			<a href="#" class="image fit"><img src="images/glue_crawler.png" alt="" /></a>
+
+			<h3>AWS Glue Database and Tables</h3>
+			<p>Crawler will create a database and table and convert the data with schema.</p>
+			<a href="#" class="image fit"><img src="images/glue_db_table.png" alt="" /></a>
+
+			<h3>AWS Athena</h3>
+			<p>Athena can be used to query data generated in Glue data catalog.</p>
+			<a href="#" class="image fit"><img src="images/athena.png" alt="" /></a>
+
+			<h3>Amazon QuickSight</h3>
+			<p>Amazon QuickSight is is used to create meaningful analytics dashboard using Athena data catalog.</p>
+			<a href="#" class="image fit"><img src="" alt="" /></a>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-facebook">
+						<span class="label">Facebook</span>
+					</a></li>
+				<li><a href="#" class="icon fa-twitter">
+						<span class="label">Twitter</span>
+					</a></li>
+				<li><a href="#" class="icon fa-instagram">
+						<span class="label">Instagram</span>
+					</a></li>
+				<li><a href="#" class="icon fa-linkedin">
+						<span class="label">LinkedIn</span>
+					</a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; CapstoneTeam17</li>
+				<!-- <li>Images: <a href="http://unsplash.com">Unsplash</a>.</li> -->
+				<!-- <li>Design: <a href="http://templated.co">TEMPLATED</a>.</li> -->
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,2 +1,2 @@
-# blueGreenApplicationcode
-added buildspec with image.json
+# pgpcc-capstone-covid
+ PGPCC Capstone project
