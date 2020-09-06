@@ -5,5 +5,5 @@ Resources:
       Properties:
         TaskDefinition:"arn:aws:ecs:us-west-2:810119154557:task-definition/first-run-task-definition:3"
         LoadBalancerInfo:
-          ContainerName: "Sukanya"
+          ContainerName: "sukanya2"
           ContainerPort: 80
